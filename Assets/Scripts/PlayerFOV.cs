@@ -40,7 +40,7 @@ public class PlayerFOV : MonoBehaviour
         {
             startingAngle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90f;
         }
-        float angle = startingAngle;
+        float angle = startingAngle + viewAngle/2;
 
         vertices[0] = transform.localPosition;
 
