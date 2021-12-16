@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public InputActions input;
+    private Rigidbody2D rb;
 
     public Vector2 move;
     public float speedMult = 1f;
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
 
         input.Gameplay.Interact.performed += ctx => Interact();
         input.Gameplay.Peek.performed += ctx => Peek();
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void OnEnable()
@@ -28,7 +31,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        transform.position += new Vector3(move.x, move.y, 0f) * speedMult;
+        rb.velocity = move * speedMult;
     }
 
     void Interact()
