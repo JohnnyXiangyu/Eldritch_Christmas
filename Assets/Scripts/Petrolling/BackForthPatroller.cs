@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackForthPatroller : Petroller
+public class BackForthPatroller : Patroller
 {
     Queue<GameObject> activeNodes = new Queue<GameObject>();
     Stack<GameObject> usedNodes = new Stack<GameObject>();
