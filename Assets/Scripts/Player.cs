@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         {
             angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90f;
         }
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     void Interact()
