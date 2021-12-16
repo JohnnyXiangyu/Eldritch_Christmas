@@ -129,9 +129,9 @@ GameObject:
   - component: {fileID: 2183359617319028856}
   - component: {fileID: 2817459462925715482}
   - component: {fileID: 4657920280931674549}
-  - component: {fileID: 8355638429992449629}
   - component: {fileID: 2955782113984364600}
   - component: {fileID: 4851935695226986599}
+  - component: {fileID: 5972383087385324624}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -240,32 +240,6 @@ MonoBehaviour:
   viewAngle: 100
   rayCount: 500
   startingAngle: 0
---- !u!61 &8355638429992449629
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112543865183934303}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.34218362, y: 0.45842978}
-  m_EdgeRadius: 0
 --- !u!50 &2955782113984364600
 Rigidbody2D:
   serializedVersion: 4
@@ -306,6 +280,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &5972383087385324624
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112543865183934303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.16
 --- !u!1 &1932930926175450569
 GameObject:
   m_ObjectHideFlags: 0

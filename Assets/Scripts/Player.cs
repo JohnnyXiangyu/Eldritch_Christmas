@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
     {
         rb.velocity = move * speedMult;
 
-        if (move.magnitude > float.Epsilon)
+        if (rb.velocity.sqrMagnitude > float.Epsilon)
         {
             anim.SetBool("moving", true);
 
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            anim.SetBool("moving", true);
+            anim.SetBool("moving", false);
         }
     }
 
