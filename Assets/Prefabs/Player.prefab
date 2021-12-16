@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 8705730475585586077}
   - component: {fileID: 685663389953457418}
   - component: {fileID: 4918311884565097243}
+  - component: {fileID: 4647386044419571691}
   - component: {fileID: 4674344008196196782}
   - component: {fileID: 4918311884565097247}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +100,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
   speedMult: 3
+--- !u!114 &4647386044419571691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739162945139757648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb28262914ee818408977adc9dfa5c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 5
+  viewAngle: 100
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 128
+  visibleTargets: []
 --- !u!61 &4674344008196196782
 BoxCollider2D:
   m_ObjectHideFlags: 0
