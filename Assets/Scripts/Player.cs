@@ -22,6 +22,13 @@ public class Player : MonoBehaviour
         input.Gameplay.Peek.performed += ctx => Peek();
 
         rb = GetComponent<Rigidbody2D>();
+
+        // Clamp values
+        if (transform.parent.localScale.x != 1f)
+        {
+            Debug.LogError("Change the scale of Player instead of GameController!");
+            transform.parent.localScale = new Vector3Int(1,1,1);
+        }
     }
 
     void OnEnable()
