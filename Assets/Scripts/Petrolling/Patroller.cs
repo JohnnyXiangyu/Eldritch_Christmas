@@ -22,12 +22,18 @@ public abstract class Patroller : MonoBehaviour
     /// <summary>
     /// Return true to switch to chasing mode.
     /// </summary>
-    protected abstract bool DetectTarget();
+    protected virtual bool DetectTarget()
+    {
+        return false;
+    }
 
     /// <summary>
     /// Return true to continue chasing, return false to stop chasing.
     /// </summary>
-    protected abstract bool ChaseBehavior();
+    protected virtual bool ChaseBehavior()
+    {
+        return false;
+    }
 
     private void Update()
     {
