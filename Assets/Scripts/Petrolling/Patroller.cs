@@ -13,10 +13,21 @@ public abstract class Patroller : MonoBehaviour
     private enum State
     {
         WAITING,
-        MOVING
+        MOVING,
+        CHASING
     }
 
     protected abstract Vector3 GetNextDest();
+
+    /// <summary>
+    /// Return true to switch to chasing mode.
+    /// </summary>
+    protected abstract bool DetectTarget();
+
+    /// <summary>
+    /// Return true to continue chasing, return false to stop chasing.
+    /// </summary>
+    protected abstract bool ChaseBehavior();
 
     private void Update()
     {
@@ -33,7 +44,11 @@ public abstract class Patroller : MonoBehaviour
                 }
             case State.MOVING:
                 {
-                    if (((Vector2) dest - (Vector2) transform.position).magnitude > 0.01f)
+                    if (DetectTarget())
+                    {
+                        state = State.CHASING;
+                    }
+                    else if (((Vector2) dest - (Vector2) transform.position).magnitude > 0.01f)
                     {
                         Vector3 direction = dest - transform.position;
                         direction.z = 0;
@@ -45,6 +60,14 @@ public abstract class Patroller : MonoBehaviour
                     else
                     {
                         state = State.WAITING;
+                    }
+                    break;
+                }
+            case State.CHASING:
+                {
+                    if (!ChaseBehavior())
+                    {
+                        state = State.MOVING;
                     }
                     break;
                 }
