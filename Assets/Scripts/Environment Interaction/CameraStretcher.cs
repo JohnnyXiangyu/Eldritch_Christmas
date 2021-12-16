@@ -16,6 +16,7 @@ public class CameraStretcher : MonoBehaviour
 
     GameObject playerObj;
     GameObject mainCam;
+    GameObject fov;
 
     Vector3 oldPos = Vector3.positiveInfinity;
 
@@ -39,6 +40,7 @@ public class CameraStretcher : MonoBehaviour
     {
         playerObj = GameObject.FindWithTag("Player");
         mainCam = GameObject.FindWithTag("MainCamera");
+        fov = playerObj.transform.parent.GetChild(1).gameObject;
     }
 
     private void Update()
@@ -52,7 +54,9 @@ public class CameraStretcher : MonoBehaviour
                         if (!continueStretching)
                             break;
 
-                        mainCam.transform.position += stretchDirection.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, (mainCam.transform.position - targetPoint.transform.position).magnitude);
+                        Vector3 change = stretchDirection.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, (mainCam.transform.position - targetPoint.transform.position).magnitude);
+                        mainCam.transform.position += change;
+                        fov.transform.position += change;
                     }
                     else
                     {
@@ -66,7 +70,9 @@ public class CameraStretcher : MonoBehaviour
                 {
                     if (Get2DDistance(mainCam.transform.position, oldPos) > 0.01f)
                     {
-                        mainCam.transform.position += retractDirection.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, Get2DDistance(mainCam.transform.position, oldPos));
+                        Vector3 change = retractDirection.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, Get2DDistance(mainCam.transform.position, oldPos));
+                        mainCam.transform.position += change;
+                        fov.transform.position += change;
                     }
                     else
                     {

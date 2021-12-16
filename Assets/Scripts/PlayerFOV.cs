@@ -6,6 +6,7 @@ public class PlayerFOV : MonoBehaviour
 {
     public LayerMask obstacles;
     public MeshFilter meshFilter;
+    public Transform origin;
 
     public float viewRadius = 5f;
     [Range(0,360)] public float viewAngle = 100f;
@@ -15,7 +16,6 @@ public class PlayerFOV : MonoBehaviour
     float angleIncrease;
 
     Mesh mesh;
-    Player player;
     Vector3[] vertices;
     Vector2[] uv;
     int[] triangles;
@@ -23,7 +23,6 @@ public class PlayerFOV : MonoBehaviour
     void Start()
     {
         mesh = new Mesh();
-        player = GetComponent<Player>();
         meshFilter.mesh = mesh;
 
         angleIncrease = viewAngle / rayCount;
@@ -31,32 +30,34 @@ public class PlayerFOV : MonoBehaviour
         vertices = new Vector3[rayCount + 2];
         uv = new Vector2[vertices.Length];
         triangles = new int[rayCount * 3];
+
+        origin = transform;
     }
 
     void Update()
     {
-        Vector2 move = GetComponent<Player>().move;
+        Vector2 move = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().move;
         if (move != Vector2.zero)
         {
             startingAngle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90f;
         }
         float angle = startingAngle + viewAngle/2;
 
-        vertices[0] = transform.localPosition;
+        vertices[0] = origin.position;
 
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, DirectionFromAngle(angle, false), viewRadius, obstacles);
+            RaycastHit2D hit = Physics2D.Raycast(origin.position, DirectionFromAngle(angle, false), viewRadius, obstacles);
             if (!hit.collider)
             {
-                vertex = (Vector2)transform.position + DirectionFromAngle(angle, false) * viewRadius;
+                vertex = (Vector2)origin.position + DirectionFromAngle(angle, false) * viewRadius;
             }
             else
             {
                 vertex = hit.point;
             }
-            // Debug.DrawLine(transform.position, vertex, Color.green, 0.01f);
+            // Debug.DrawLine(origin.position, vertex, Color.green, 0.01f);
             vertices[i + 1] = vertex;
 
             if (i > 0)
@@ -65,9 +66,9 @@ public class PlayerFOV : MonoBehaviour
                 triangles[i*3 - 2] = i;
                 triangles[i*3 - 1] = i + 1;
 
-                // Debug.DrawLine(vertices[0], vertices[triangles[triangleIndex + 1]], Color.red, 0.01f);
-                // Debug.DrawLine(vertices[triangles[triangleIndex + 1]], vertices[triangles[triangleIndex + 2]], Color.red, 0.01f);
-                // Debug.DrawLine(vertices[triangles[triangleIndex + 2]], vertices[0], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[0], vertices[triangles[i*3 - 2]], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[triangles[i*3-2]], vertices[triangles[i*3-1]], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[triangles[i*3-1]], vertices[0], Color.red, 0.01f);
             }
 
             angle -= angleIncrease;
@@ -76,7 +77,7 @@ public class PlayerFOV : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        mesh.bounds = new Bounds(transform.position, Vector3.one * 1000f);
+        mesh.bounds = new Bounds(origin.position, Vector3.one * 1000f);
     }
 
     public Vector2 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal = true)
