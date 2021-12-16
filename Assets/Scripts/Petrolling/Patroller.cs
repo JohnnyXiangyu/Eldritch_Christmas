@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Petroller : MonoBehaviour
+public abstract class Patroller : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] protected List<GameObject> nodes; // child objects should be able to get it
