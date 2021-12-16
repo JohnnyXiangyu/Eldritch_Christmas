@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
 
     public Vector2 move;
-    public float angle;
     public float speedMult = 1f;
 
     void Awake()
@@ -33,12 +32,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = move * speedMult;
-        
-        if (move != Vector2.zero)
-        {
-            angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90f;
-        }
-        transform.GetChild(0).rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     void Interact()

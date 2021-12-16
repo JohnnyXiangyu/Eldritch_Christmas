@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerFOV : MonoBehaviour
 {
     public LayerMask obstacles;
+    public MeshFilter meshFilter;
 
     public float viewRadius = 5f;
     [Range(0,360)] public float viewAngle = 100f;
     public int rayCount = 10;
+    public float startingAngle;
 
     float angleIncrease;
 
@@ -21,8 +23,8 @@ public class PlayerFOV : MonoBehaviour
     void Start()
     {
         mesh = new Mesh();
-        player = transform.parent.GetComponent<Player>();
-        GetComponent<MeshFilter>().mesh = mesh;
+        player = GetComponent<Player>();
+        meshFilter.mesh = mesh;
 
         angleIncrease = viewAngle / rayCount;
 
@@ -33,40 +35,40 @@ public class PlayerFOV : MonoBehaviour
 
     void Update()
     {
-        vertices[0] = Vector2.zero;
-        float angle = transform.eulerAngles.z + viewAngle/2;
-        if (angle >= 360f)
+        Vector2 move = GetComponent<Player>().move;
+        if (move != Vector2.zero)
         {
-            angle -= 360f;
+            startingAngle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90f;
         }
+        float angle = startingAngle;
 
-        int vertexIndex = 1;
-        int triangleIndex = 0;
+        vertices[0] = transform.localPosition;
+
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, DirectionFromAngle(angle, false), viewRadius, obstacles);
-            Debug.DrawRay(transform.position, DirectionFromAngle(i*angleIncrease - viewAngle/2) * viewRadius, Color.green, 0.01f);
             if (!hit.collider)
             {
-                vertex = Vector2.zero + DirectionFromAngle(angle, false) * viewRadius;
+                vertex = (Vector2)transform.position + DirectionFromAngle(angle, false) * viewRadius;
             }
             else
             {
                 vertex = hit.point;
-                Debug.Log(vertex + " " + i);
             }
-            vertices[vertexIndex] = vertex;
+            // Debug.DrawLine(transform.position, vertex, Color.green, 0.01f);
+            vertices[i + 1] = vertex;
 
             if (i > 0)
             {
-                triangles[triangleIndex] = 0;
-                triangles[triangleIndex + 1] = vertexIndex - 1;
-                triangles[triangleIndex + 2] = vertexIndex;
+                triangles[i*3 - 3] = 0;
+                triangles[i*3 - 2] = i;
+                triangles[i*3 - 1] = i + 1;
 
-                triangleIndex += 3;
+                // Debug.DrawLine(vertices[0], vertices[triangles[triangleIndex + 1]], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[triangles[triangleIndex + 1]], vertices[triangles[triangleIndex + 2]], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[triangles[triangleIndex + 2]], vertices[0], Color.red, 0.01f);
             }
-            vertexIndex++;
 
             angle -= angleIncrease;
         }
