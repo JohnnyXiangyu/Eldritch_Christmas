@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircularPetroller : Petroller
+public class CircularPatroller : Patroller
 {
     Queue<GameObject> nodeQueue = new Queue<GameObject>();
 
