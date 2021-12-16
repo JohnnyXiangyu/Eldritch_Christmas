@@ -11,10 +11,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - Targets
+  - Revealables
   - Obstacles
-  - 
-  - 
+  - Mask
+  - Darkness
   - 
   - 
   - 

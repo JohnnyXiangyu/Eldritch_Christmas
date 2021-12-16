@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor (typeof(FieldOfView))]
+[CustomEditor (typeof(EnemyFOV))]
 public class FOVEditor : Editor
 {
     void OnSceneGUI()
     {
-        FieldOfView fov = (FieldOfView)target;
+        EnemyFOV fov = (EnemyFOV)target;
         Handles.color = Color.green;
         Handles.DrawWireArc(fov.transform.position, Vector3.forward, Vector3.up, 360, fov.viewRadius);
 

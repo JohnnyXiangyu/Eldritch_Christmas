@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public InputActions input;
+    public Animator anim;
     private Rigidbody2D rb;
 
     public Vector2 move;
-    public float angle;
     public float speedMult = 1f;
 
     void Awake()
@@ -23,6 +23,13 @@ public class Player : MonoBehaviour
         input.Gameplay.Peek.performed += ctx => Peek();
 
         rb = GetComponent<Rigidbody2D>();
+
+        // Clamp values
+        if (transform.parent.localScale.x != 1f)
+        {
+            Debug.LogError("Change the scale of Player instead of GameController!");
+            transform.parent.localScale = new Vector3Int(1,1,1);
+        }
     }
 
     void OnEnable()
@@ -33,12 +40,26 @@ public class Player : MonoBehaviour
     void Update()
     {
         rb.velocity = move * speedMult;
-        
-        if (move != Vector2.zero)
+
+        if (rb.velocity.sqrMagnitude > float.Epsilon)
         {
-            angle = Mathf.Atan2(move.y, move.x) * Mathf.Rad2Deg - 90f;
+            anim.SetBool("moving", true);
+
+            float angleFromUp = Vector2.SignedAngle(Vector2.up, move);
+            // Debug.Log(angleFromUp);
+            if (angleFromUp < -45f && angleFromUp > -135f)
+                anim.SetInteger("dir", 1);
+            else if (angleFromUp < -135f || angleFromUp > 135f)
+                anim.SetInteger("dir", 2);
+            else if (angleFromUp < 135f && angleFromUp > 45f)
+                anim.SetInteger("dir", 3);
+            else 
+                anim.SetInteger("dir", 0);
         }
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        else
+        {
+            anim.SetBool("moving", false);
+        }
     }
 
     void Interact()
