@@ -24,7 +24,6 @@ public class PeekableCorner : HoveringTooltip
         {
             if (tooltip.activeSelf)
             {
-                cameraControl.continueStretching = false;
                 cameraControl.Retract();
             }
         };
