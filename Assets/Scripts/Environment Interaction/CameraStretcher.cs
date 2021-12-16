@@ -20,6 +20,20 @@ public class CameraStretcher : MonoBehaviour
     Vector3 oldPos = Vector3.positiveInfinity;
 
     public bool continueStretching = true; // if turned off it'll immediately stop any movement
+    private State state;
+
+    // internal 
+    Vector3 stretchDirection;
+    Vector3 retractDirection;
+
+    private enum State
+    {
+        IDLE,
+        STETCHING,
+        OUT,
+        RETRACTING,
+        LENGTH
+    }
 
     private void Start()
     {
@@ -27,69 +41,104 @@ public class CameraStretcher : MonoBehaviour
         mainCam = GameObject.FindWithTag("MainCamera");
     }
 
+    private void Update()
+    {
+        switch (state)
+        {
+            case State.STETCHING:
+                {
+                    if (Get2DDistance(mainCam.transform.position, targetPoint.transform.position) > 0.01f)
+                    {
+                        if (!continueStretching)
+                            break;
+
+                        mainCam.transform.position += stretchDirection.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, (mainCam.transform.position - targetPoint.transform.position).magnitude);
+                    }
+                    else
+                    {
+                        state = State.OUT;
+                        afterStretch.Invoke();
+                    }
+
+                    break;
+                }
+            case State.RETRACTING:
+                {
+                    if (Get2DDistance(mainCam.transform.position, oldPos) > 0.01f)
+                    {
+                        mainCam.transform.position += retractDirection.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, Get2DDistance(mainCam.transform.position, oldPos));
+                    }
+                    else
+                    {
+                        state = State.IDLE;
+                        oldPos = Vector3.positiveInfinity;
+                        afterStretch.Invoke();
+
+                        if (playerObj)
+                            playerObj.GetComponent<Player>().enabled = true;
+                    }
+
+                    break;
+                }
+        }
+    }
+
     public void Stretch()
     {
-        StartCoroutine(StretchRoutine());
+        // StartCoroutine(StretchRoutine());
+
+        if (state == State.IDLE)
+        {
+            stretchDirection = targetPoint.transform.position - mainCam.transform.position;
+            if (stretchDirection.magnitude <= 0)
+                return;
+            
+            beforeStretch.Invoke();
+            oldPos = mainCam.transform.position;
+
+            if (playerObj)
+                playerObj.GetComponent<Player>().enabled = false;
+
+            stretchDirection = targetPoint.transform.position - mainCam.transform.position;
+            stretchDirection.z = 0;
+
+            state = State.STETCHING;
+        }
+        else if (state == State.RETRACTING) // player not unlocked yet
+        {
+            stretchDirection = targetPoint.transform.position - mainCam.transform.position;
+            if (stretchDirection.magnitude <= 0)
+                return;
+
+            // beforeStretch.Invoke();
+            // oldPos = mainCam.transform.position;
+
+            if (playerObj)
+                playerObj.GetComponent<Player>().enabled = false;
+
+            stretchDirection = targetPoint.transform.position - mainCam.transform.position;
+            stretchDirection.z = 0;
+
+            state = State.STETCHING;
+        }
     }
 
     public void Retract()
     {
-        StartCoroutine(RetractRoutine());
-    }
+        // StartCoroutine(RetractRoutine());
 
-    private IEnumerator StretchRoutine()
-    {
-        if (playerObj)
-            playerObj.GetComponent<Player>().enabled = false;
-
-        beforeStretch.Invoke();
-
-        oldPos = mainCam.transform.position;
-
-        Vector3 direction = targetPoint.transform.position - mainCam.transform.position;
-        direction.z = 0;
-
-        if (direction.magnitude > 0)
+        if (state == State.STETCHING || state == State.OUT)
         {
-            while (Get2DDistance(mainCam.transform.position, targetPoint.transform.position) > 0.01f)
-            {
-                if (!continueStretching)
-                    break;
+            retractDirection = oldPos - mainCam.transform.position;
+            retractDirection.z = 0;
 
-                mainCam.transform.position += direction.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, (mainCam.transform.position - targetPoint.transform.position).magnitude);
-                yield return null;
-            }
+            if (oldPos == Vector3.positiveInfinity || retractDirection.magnitude <= 0)
+                return;
+
+            beforeStretch.Invoke();
+
+            state = State.RETRACTING;
         }
-
-        afterStretch.Invoke();
-    }
-
-    private IEnumerator RetractRoutine()
-    {
-        continueStretching = false;
-
-        beforeStretch.Invoke();
-
-        Vector3 direction = oldPos - mainCam.transform.position;
-        direction.z = 0;
-
-        if (oldPos != Vector3.positiveInfinity && direction.magnitude > 0)
-        {
-            while (Get2DDistance(mainCam.transform.position, oldPos) > 0.01f)
-            {
-                mainCam.transform.position += direction.normalized * Mathf.Min(Time.deltaTime * stretchSpeed, Get2DDistance(mainCam.transform.position, oldPos));
-                yield return null;
-            }
-
-            oldPos = Vector3.positiveInfinity;
-        }
-
-        afterStretch.Invoke();
-
-        if (playerObj)
-            playerObj.GetComponent<Player>().enabled = true;
-
-        continueStretching = true;
     }
 
     float Get2DDistance(Vector3 a, Vector3 b)
