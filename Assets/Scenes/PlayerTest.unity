@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 1555699569}
   - component: {fileID: 1555699568}
   - component: {fileID: 1555699570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Winged Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   - component: {fileID: 1584757563}
   - component: {fileID: 1584757562}
   - component: {fileID: 1584757561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Winged Bat GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -78,6 +78,7 @@ public class PlayerFOV : MonoBehaviour
         mesh.uv = uv;
         mesh.triangles = triangles;
         mesh.bounds = new Bounds(origin.position, Vector3.one * 1000f);
+        meshFilter.transform.position = Vector2.zero;
     }
 
     public Vector2 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal = true)

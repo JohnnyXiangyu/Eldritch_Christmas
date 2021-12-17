@@ -11,13 +11,18 @@ public class PeekableCorner : HoveringTooltip
     private void Awake()
     {
         input = new InputActions();
-        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         PlayerFOV fov = player.GetComponent<PlayerFOV>();
 
         input.Gameplay.Peek.performed += ctx =>
         {
             if (tooltip.activeSelf)
             {
+                player.move = Vector2.zero;
+                player.anim.SetBool("moving", false);
+                player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                player.transform.GetChild(0).position = (Vector2)transform.GetChild(1).position;
+
                 fov.origin = transform.GetChild(1);
                 cameraControl.Stretch();
             }
@@ -27,6 +32,8 @@ public class PeekableCorner : HoveringTooltip
         {
             if (tooltip.activeSelf)
             {
+                player.transform.GetChild(0).position = player.transform.position;
+
                 fov.origin = player.transform;
                 cameraControl.Retract();
             }
