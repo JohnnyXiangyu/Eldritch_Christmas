@@ -36,7 +36,7 @@ public class EnemyFOV : MonoBehaviour
 
                 if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    visibleTargets.Add(t);
+                    t.GetComponent<Player>().Die();
                 }
             }
         }
