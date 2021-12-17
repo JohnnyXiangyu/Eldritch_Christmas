@@ -61,7 +61,12 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        anim.SetTrigger("die");
+    }
+
+    public void Restart()
+    {
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnDisable()
