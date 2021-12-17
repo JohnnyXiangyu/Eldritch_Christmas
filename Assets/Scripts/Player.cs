@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
             // Debug.Log(angleFromUp);
             if (angleFromUp < -45f && angleFromUp > -135f)
                 anim.SetInteger("dir", 1);
-            else if (angleFromUp < -135f || angleFromUp > 135f)
+            else if (angleFromUp <= -135f || angleFromUp >= 135f)
                 anim.SetInteger("dir", 2);
             else if (angleFromUp < 135f && angleFromUp > 45f)
                 anim.SetInteger("dir", 3);
