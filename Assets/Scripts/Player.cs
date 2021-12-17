@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -62,10 +64,20 @@ public class Player : MonoBehaviour
     public void Die()
     {
         anim.SetTrigger("die");
+        GetComponent<CircleCollider2D>().enabled = false;
         GetComponent<AudioSource>().Play();
     }
 
-    public void Restart()
+    public void DeathScreen()
+    {
+        Transform img = GameObject.Find("DeathScreen").transform.GetChild(0);
+        img.GetComponent<Image>().DOFade(1f, 1f);
+        img.GetChild(0).GetComponent<Text>().DOFade(1f, 1f);
+        img.GetChild(1).GetComponent<Text>().DOFade(1f, 1f);
+        Invoke("Reload", 3f);
+    }
+
+    void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
