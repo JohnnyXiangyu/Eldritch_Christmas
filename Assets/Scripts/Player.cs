@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
     {
         float angleFromUp = Vector2.SignedAngle(Vector2.up, throwDirection);
 
-        if (move.magnitude > 0)
+        if (rb.velocity.sqrMagnitude > float.Epsilon)
         {
             int animDirection = anim.GetInteger("dir");
 

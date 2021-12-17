@@ -74,10 +74,11 @@ public class PlayerMag : MonoBehaviour
             GameObject projectile = Instantiate(throwablePrefabs[ammoNames[currentAmmo]], transform.position + direction * avoidanceRadius, Quaternion.identity);
             projectile.GetComponent<LaunchableAmmo>().Launch(direction);
 
-            // TODO: update player direction
-
             // start timer
             coolDown = throwCoolDown;
+
+            // update inventory
+            magazine[ammoNames[currentAmmo]]--;
         }
     }
 
