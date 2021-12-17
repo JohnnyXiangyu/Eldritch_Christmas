@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4851935695226986599}
   move: {x: 0, y: 0}
-  speedMult: 3
+  speedMult: 2
 --- !u!114 &4657920280931674549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   meshFilter: {fileID: 1932930926175450568}
+  origin: {fileID: 0}
   viewRadius: 2
   viewAngle: 100
   rayCount: 500

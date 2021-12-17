@@ -48,16 +48,16 @@ public class PlayerFOV : MonoBehaviour
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
-            RaycastHit2D hit = Physics2D.Raycast(origin.position, DirectionFromAngle(angle, false), viewRadius, obstacles);
+            RaycastHit2D hit = Physics2D.Raycast(vertices[0], DirectionFromAngle(angle, false), viewRadius, obstacles);
             if (!hit.collider)
             {
-                vertex = (Vector2)origin.position + DirectionFromAngle(angle, false) * viewRadius;
+                vertex = (Vector2)vertices[0] + DirectionFromAngle(angle, false) * viewRadius;
             }
             else
             {
                 vertex = hit.point;
             }
-            // Debug.DrawLine(origin.position, vertex, Color.green, 0.01f);
+            // Debug.DrawLine(vertices[0], vertex, Color.green, 0.01f);
             vertices[i + 1] = vertex;
 
             if (i > 0)
@@ -77,7 +77,8 @@ public class PlayerFOV : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
-        mesh.bounds = new Bounds(origin.position, Vector3.one * 1000f);
+        mesh.bounds = new Bounds(vertices[0], Vector3.one * 1000f);
+        meshFilter.transform.position = Vector2.zero;
     }
 
     public Vector2 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal = true)
