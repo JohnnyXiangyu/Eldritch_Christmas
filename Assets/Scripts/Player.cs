@@ -115,6 +115,8 @@ public class Player : MonoBehaviour
             else
                 anim.SetInteger("dir", 0);
 
+            anim.SetTrigger("dryTurn");
+
             return true;
         }
     }
