@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,9 +18,6 @@ public class Player : MonoBehaviour
 
         input.Gameplay.Movement.performed += ctx => move = ctx.ReadValue<Vector2>();
         input.Gameplay.Movement.canceled += ctx => move = Vector2.zero;
-
-        input.Gameplay.Interact.performed += ctx => Interact();
-        input.Gameplay.Peek.performed += ctx => Peek();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -62,14 +59,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Interact()
+    public void Die()
     {
-        
-    }
-
-    void Peek()
-    {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnDisable()
