@@ -7409,6 +7409,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 4851935695226986599, guid: 5469e52e2b5875a4c9427472c227f5c2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851935695226986599, guid: 5469e52e2b5875a4c9427472c227f5c2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fbe58841a77de8d4fb763b3fd3c12c0b, type: 2}
+    - target: {fileID: 4851935695226986599, guid: 5469e52e2b5875a4c9427472c227f5c2, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5469e52e2b5875a4c9427472c227f5c2, type: 3}
 --- !u!4 &404963511 stripped
