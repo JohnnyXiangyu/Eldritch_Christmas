@@ -30,7 +30,6 @@ public class TitleScreen : MonoBehaviour
 
         if (Gamepad.current != null || Joystick.current != null)
         {
-            Debug.Log(Gamepad.current.displayName);
             GameObject.FindObjectOfType<EventSystem>().SetSelectedGameObject(background.transform.GetChild(1).gameObject);
         }
         else
