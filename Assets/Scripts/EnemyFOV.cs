@@ -11,11 +11,81 @@ public class EnemyFOV : MonoBehaviour
     [Range(0,360)] public float viewAngle = 100;
     public float angleOffset = 0f;
     public bool activelySearching = true;
+    public int rayCount = 500;
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
+    public MeshFilter meshFilter;
+    public Transform origin;
 
-    public List<Transform> visibleTargets = new List<Transform>();
+    float angleIncrease;
+
+    Mesh mesh;
+    Vector3[] vertices;
+    Vector2[] uv;
+    int[] triangles;
+
+    void Start()
+    {
+        mesh = new Mesh();
+        meshFilter.mesh = mesh;
+
+        angleIncrease = viewAngle / rayCount;
+
+        vertices = new Vector3[rayCount + 2];
+        uv = new Vector2[vertices.Length];
+        triangles = new int[rayCount * 3];
+
+        origin = transform;
+    }
+
+    void Update()
+    {
+        if (!activelySearching)
+        {
+            mesh.Clear();
+            return;
+        }
+
+        float angle = angleOffset + viewAngle/2 + 90f;
+
+        vertices[0] = origin.position;
+
+        for (int i = 0; i <= rayCount; i++)
+        {
+            Vector3 vertex;
+            RaycastHit2D hit = Physics2D.Raycast(origin.position, DirectionFromAngle(angle, false), viewRadius, obstacleMask);
+            if (!hit.collider)
+            {
+                vertex = (Vector2)origin.position + DirectionFromAngle(angle, false) * viewRadius;
+            }
+            else
+            {
+                vertex = hit.point;
+            }
+            // Debug.DrawLine(origin.position, vertex, Color.green, 0.01f);
+            vertices[i + 1] = vertex;
+
+            if (i > 0)
+            {
+                triangles[i*3 - 3] = 0;
+                triangles[i*3 - 2] = i;
+                triangles[i*3 - 1] = i + 1;
+
+                // Debug.DrawLine(vertices[0], vertices[triangles[i*3 - 2]], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[triangles[i*3-2]], vertices[triangles[i*3-1]], Color.red, 0.01f);
+                // Debug.DrawLine(vertices[triangles[i*3-1]], vertices[0], Color.red, 0.01f);
+            }
+
+            angle -= angleIncrease;
+        }
+
+        mesh.vertices = vertices;
+        mesh.uv = uv;
+        mesh.triangles = triangles;
+        mesh.bounds = new Bounds(origin.position, Vector3.one * 1000f);
+        meshFilter.transform.position = Vector2.zero;
+    }
 
     void FixedUpdate()
     {
@@ -24,7 +94,6 @@ public class EnemyFOV : MonoBehaviour
             return;
         }
 
-        visibleTargets.Clear();
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
 
         foreach (Collider2D target in targetsInViewRadius)

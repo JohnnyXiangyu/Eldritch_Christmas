@@ -92,7 +92,7 @@ public class CameraStretcher : MonoBehaviour
     public void Stretch()
     {
         // StartCoroutine(StretchRoutine());
-        Debug.Log("Stretch to " + targetPoint.transform.position);
+        // Debug.Log("Stretch to " + targetPoint.transform.position);
         if (state == State.IDLE)
         {
             stretchDirection = targetPoint.transform.position - mainCam.transform.position;
