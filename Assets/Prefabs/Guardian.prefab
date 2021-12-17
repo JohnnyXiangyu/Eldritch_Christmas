@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff6ac9b5f1a5c649ad453b8e030983f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireball: {fileID: 5982039171680916719, guid: 309ce1a60ab62714fb3e3c8d018d5f88, type: 3}
   viewRadius: 1.5
   viewAngle: 90
   angleOffset: 180

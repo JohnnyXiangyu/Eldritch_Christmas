@@ -61,6 +61,12 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        anim.SetTrigger("die");
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void Restart()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

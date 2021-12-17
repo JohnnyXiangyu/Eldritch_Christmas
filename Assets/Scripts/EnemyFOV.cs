@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyFOV : MonoBehaviour
 {
+    public GameObject fireball;
+
     public float viewRadius = 3;
     [Range(0,360)] public float viewAngle = 100;
     public float angleOffset = 0f;
@@ -42,7 +45,15 @@ public class EnemyFOV : MonoBehaviour
 
                 if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
-                    t.GetComponent<Player>().Die();
+                    activelySearching = false;
+                    gameObject.layer = 0;
+                    t.GetComponent<Player>().input.Disable();
+                    t.GetComponent<Player>().anim.SetBool("moving", false);
+                    t.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    GameObject fb = Instantiate(fireball, transform.position, Quaternion.LookRotation(transform.forward, t.position - transform.position));
+                    fb.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 2;
+                    fb.transform.DOMove(t.position, 0.5f).OnComplete(t.GetComponent<Player>().Die);
+                    Destroy(fb, 0.5f);
                 }
             }
         }
