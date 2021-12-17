@@ -86,4 +86,38 @@ public class Player : MonoBehaviour
     {
         input.Disable();
     }
+
+    public bool TryThrow(Vector2 throwDirection)
+    {
+        float angleFromUp = Vector2.SignedAngle(Vector2.up, throwDirection);
+
+        if (rb.velocity.sqrMagnitude > float.Epsilon)
+        {
+            int animDirection = anim.GetInteger("dir");
+
+            if (angleFromUp < -45f && angleFromUp > -135f)
+                return animDirection == 1;
+            else if (angleFromUp <= -135f || angleFromUp >= 135f)
+                return animDirection == 2;
+            else if (angleFromUp < 135f && angleFromUp > 45f)
+                return animDirection == 3;
+            else
+                return animDirection == 0;
+        }
+        else
+        {
+            if (angleFromUp < -45f && angleFromUp > -135f)
+                anim.SetInteger("dir", 1);
+            else if (angleFromUp <= -135f || angleFromUp >= 135f)
+                anim.SetInteger("dir", 2);
+            else if (angleFromUp < 135f && angleFromUp > 45f)
+                anim.SetInteger("dir", 3);
+            else
+                anim.SetInteger("dir", 0);
+
+            anim.SetTrigger("dryTurn");
+
+            return true;
+        }
+    }
 }
