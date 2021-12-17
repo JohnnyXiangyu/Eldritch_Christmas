@@ -47,8 +47,9 @@ public class EnemyFOV : MonoBehaviour
                 {
                     activelySearching = false;
                     gameObject.layer = 0;
-                    // t.GetComponent<Player>().input.Disable();
-                    // t.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    t.GetComponent<Player>().input.Disable();
+                    t.GetComponent<Player>().anim.SetBool("moving", false);
+                    t.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     GameObject fb = Instantiate(fireball, transform.position, Quaternion.LookRotation(transform.forward, t.position - transform.position));
                     fb.transform.GetChild(0).GetComponent<SpriteRenderer>().sortingOrder = 2;
                     fb.transform.DOMove(t.position, 0.5f).OnComplete(t.GetComponent<Player>().Die);

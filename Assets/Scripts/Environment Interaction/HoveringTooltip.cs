@@ -16,7 +16,6 @@ public class HoveringTooltip : MonoBehaviour
         {
             entered = true;
             tooltip.SetActive(true);
-            Debug.Log(collision.name);
         }
     }
 
