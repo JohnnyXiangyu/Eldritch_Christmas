@@ -106,12 +106,12 @@ TextureImporter:
       name: Old_God_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 120
-        width: 98
-        height: 95
+        x: 0
+        y: 112
+        width: 112
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -127,12 +127,12 @@ TextureImporter:
       name: Old_God_1
       rect:
         serializedVersion: 2
-        x: 119
-        y: 120
-        width: 98
-        height: 98
+        x: 112
+        y: 112
+        width: 112
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -148,12 +148,12 @@ TextureImporter:
       name: Old_God_2
       rect:
         serializedVersion: 2
-        x: 3
-        y: 8
-        width: 102
-        height: 103
+        x: 0
+        y: 0
+        width: 112
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: Old_God_3
       rect:
         serializedVersion: 2
-        x: 119
-        y: 8
-        width: 98
-        height: 98
+        x: 112
+        y: 0
+        width: 112
+        height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

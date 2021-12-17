@@ -21,19 +21,13 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - time: 0.25
-      value: {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - time: 0.5
-      value: {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - time: 0.75
       value: {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - time: 1
       value: {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - time: 1.25
-      value: {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - time: 1.5
-      value: {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - time: 1.75
+      value: {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
+    - time: 2
       value: {fileID: 668026933685168574, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - time: 4
       value: {fileID: 668026933685168574, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
@@ -60,9 +54,6 @@ AnimationClip:
     - {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - {fileID: -5775150622789939835, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
-    - {fileID: -7394320231165184509, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - {fileID: 668026933685168574, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
     - {fileID: 668026933685168574, guid: 207b458edd7ea4243b8553a247f8c412, type: 3}
   m_AnimationClipSettings:
@@ -97,7 +88,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.75
+  - time: 2
     functionName: Enable
     data: 
     objectReferenceParameter: {fileID: 0}

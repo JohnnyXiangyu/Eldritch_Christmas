@@ -858,6 +858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Old God
       objectReference: {fileID: 0}
+    - target: {fileID: 625659228760937807, guid: 30084ade6473a964da08911b13d54fb7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 625659228760937842, guid: 30084ade6473a964da08911b13d54fb7, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -980,6 +984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winged Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 4656302139642969838, guid: c9082f2e715341546aca4b6fb486b872, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4656302139642969840, guid: c9082f2e715341546aca4b6fb486b872, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1024,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4656302139679707833, guid: c9082f2e715341546aca4b6fb486b872, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9082f2e715341546aca4b6fb486b872, type: 3}
 --- !u!1001 &4754280849057627536
@@ -1036,6 +1048,10 @@ PrefabInstance:
     - target: {fileID: 4754280850287409197, guid: 64c12ac7f40bda94a9b0d192dfbc53e4, type: 3}
       propertyPath: m_Name
       value: Guardian
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754280850287409197, guid: 64c12ac7f40bda94a9b0d192dfbc53e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4754280850287409199, guid: 64c12ac7f40bda94a9b0d192dfbc53e4, type: 3}
       propertyPath: m_RootOrder
