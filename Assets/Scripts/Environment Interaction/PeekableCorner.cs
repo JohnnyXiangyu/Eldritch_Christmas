@@ -16,7 +16,7 @@ public class PeekableCorner : HoveringTooltip
 
         input.Gameplay.Peek.performed += ctx =>
         {
-            if (tooltip.activeSelf)
+            if (entered)
             {
                 player.move = Vector2.zero;
                 player.anim.SetBool("moving", false);
@@ -30,7 +30,7 @@ public class PeekableCorner : HoveringTooltip
 
         input.Gameplay.Peek.canceled += cts =>
         {
-            if (tooltip.activeSelf)
+            if (entered)
             {
                 player.transform.GetChild(0).position = player.transform.position;
 
