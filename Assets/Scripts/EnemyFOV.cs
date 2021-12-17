@@ -51,6 +51,11 @@ public class EnemyFOV : MonoBehaviour
 
         vertices[0] = origin.position;
 
+        if (meshFilter.gameObject.layer == 0)
+        {
+            Debug.Log(vertices[0]);
+        }
+
         for (int i = 0; i <= rayCount; i++)
         {
             Vector3 vertex;
