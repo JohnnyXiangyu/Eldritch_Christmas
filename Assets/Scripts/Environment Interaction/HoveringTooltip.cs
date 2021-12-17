@@ -12,17 +12,20 @@ public class HoveringTooltip : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        entered = true;
-
         if (showingTooltip && tooltip && collision.tag == "Player")
+        {
+            entered = true;
             tooltip.SetActive(true);
+            Debug.Log(collision.name);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        entered = false;
-
         if (tooltip && collision.tag == "Player")
+        {
+            entered = false;
             tooltip.SetActive(false);
+        }
     }
 }

@@ -40,6 +40,11 @@ public class PeekableCorner : HoveringTooltip
         };
     }
 
+    private void Start()
+    {
+        entered = false;
+    }
+
     private void OnEnable()
     {
         input.Enable();

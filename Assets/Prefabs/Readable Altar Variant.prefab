@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8563459773870449697, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
       propertyPath: m_text
-      value: Church of Chungus
+      value: Edit text on main object
       objectReference: {fileID: 0}
     - target: {fileID: 8563459773870449697, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
       propertyPath: m_fontAsset
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 4772046213632426132, guid: 2cdb9fd3c6555df41aeed592e864a756, type: 2}
     - target: {fileID: 8563459774981373656, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
       propertyPath: m_Name
-      value: Readable Altar
+      value: Readable Altar Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8563459774981373656, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
       propertyPath: m_Layer
