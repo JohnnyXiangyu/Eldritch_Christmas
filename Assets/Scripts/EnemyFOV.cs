@@ -59,6 +59,18 @@ public class EnemyFOV : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player p = other.gameObject.GetComponent<Player>();
+            p.input.Disable();
+            p.anim.SetBool("moving", false);
+            p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            p.Die();
+        }
+    }
+
     public Vector2 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal = true)
     {
         if (!angleIsGlobal)
