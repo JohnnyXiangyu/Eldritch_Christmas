@@ -6,11 +6,12 @@ public class EnemyFOV : MonoBehaviour
 {
     public float viewRadius = 3;
     [Range(0,360)] public float viewAngle = 100;
+    public float angleOffset = 0f;
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
-    [HideInInspector] public List<Transform> visibleTargets = new List<Transform>();
+    public List<Transform> visibleTargets = new List<Transform>();
 
     void FixedUpdate()
     {
