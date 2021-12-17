@@ -20,7 +20,7 @@ public class Billboard : HoveringTooltip
 
         input.Gameplay.Interact.performed += ctx =>
         {
-            if (showingTooltip)
+            if (showingTooltip && entered)
                 StartCoroutine(BillboardTextRoutine());
         };
     }
