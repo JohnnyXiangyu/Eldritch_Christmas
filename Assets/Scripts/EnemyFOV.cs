@@ -132,6 +132,7 @@ public class EnemyFOV : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            gameObject.layer = 0;
             Player p = other.gameObject.GetComponent<Player>();
             p.input.Disable();
             p.anim.SetBool("moving", false);

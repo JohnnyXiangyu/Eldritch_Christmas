@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!33 &38791917 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 4080571887649972678, guid: c9082f2e715341546aca4b6fb486b872, type: 3}
+  m_PrefabInstance: {fileID: 4656302140392040833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &207962079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 625659228760937807, guid: 30084ade6473a964da08911b13d54fb7, type: 3}
@@ -152,7 +157,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 128
-  meshFilter: {fileID: 0}
+  meshFilter: {fileID: 38791917}
   origin: {fileID: 0}
 --- !u!58 &207962083
 CircleCollider2D:
