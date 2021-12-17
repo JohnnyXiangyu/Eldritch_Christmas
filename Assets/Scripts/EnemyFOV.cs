@@ -7,6 +7,7 @@ public class EnemyFOV : MonoBehaviour
     public float viewRadius = 3;
     [Range(0,360)] public float viewAngle = 100;
     public float angleOffset = 0f;
+    public bool activelySearching = true;
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
@@ -15,6 +16,11 @@ public class EnemyFOV : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!activelySearching)
+        {
+            return;
+        }
+
         visibleTargets.Clear();
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
 
@@ -30,7 +36,7 @@ public class EnemyFOV : MonoBehaviour
 
             Vector2 dirToTarget = (t.position - transform.position).normalized;
 
-            if (Vector2.Angle(transform.up, dirToTarget) < viewAngle / 2)
+            if (Vector2.Angle(Quaternion.Euler(0, 0, angleOffset) * transform.up, dirToTarget) < viewAngle / 2)
             {
                 float dstToTarget = Vector2.Distance(transform.position, t.position);
 
@@ -49,5 +55,15 @@ public class EnemyFOV : MonoBehaviour
             angleInDegrees += transform.eulerAngles.z;
         }
         return new Vector2(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), Mathf.Sin(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    // Called by animation events
+    public void Enable()
+    {
+        activelySearching = true;
+    }
+    public void Disable()
+    {
+        activelySearching = false;
     }
 }
