@@ -53,6 +53,33 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeAmmo"",
+                    ""type"": ""Value"",
+                    ""id"": ""122ee6e4-2273-4a68-aca6-92e12566f5a0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Throw"",
+                    ""type"": ""Button"",
+                    ""id"": ""06d6ff8e-0b41-4ee6-a909-2d9ec13c1c0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aim"",
+                    ""type"": ""Value"",
+                    ""id"": ""04588251-2637-447f-a7b6-75fdf9a9e712"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -198,6 +225,39 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2236d5b6-9079-4dc9-bece-3039e472c7af"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeAmmo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9e98dbd-e48b-45c2-8e07-c52da9b6ece7"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throw"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8800f580-68d2-4f5f-be85-9dd01dbc2928"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -209,6 +269,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
+        m_Gameplay_ChangeAmmo = m_Gameplay.FindAction("ChangeAmmo", throwIfNotFound: true);
+        m_Gameplay_Throw = m_Gameplay.FindAction("Throw", throwIfNotFound: true);
+        m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +334,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Peek;
+    private readonly InputAction m_Gameplay_ChangeAmmo;
+    private readonly InputAction m_Gameplay_Throw;
+    private readonly InputAction m_Gameplay_Aim;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -278,6 +344,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
+        public InputAction @ChangeAmmo => m_Wrapper.m_Gameplay_ChangeAmmo;
+        public InputAction @Throw => m_Wrapper.m_Gameplay_Throw;
+        public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -296,6 +365,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @ChangeAmmo.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeAmmo;
+                @ChangeAmmo.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeAmmo;
+                @ChangeAmmo.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeAmmo;
+                @Throw.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
+                @Throw.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
+                @Throw.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnThrow;
+                @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -309,6 +387,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Peek.started += instance.OnPeek;
                 @Peek.performed += instance.OnPeek;
                 @Peek.canceled += instance.OnPeek;
+                @ChangeAmmo.started += instance.OnChangeAmmo;
+                @ChangeAmmo.performed += instance.OnChangeAmmo;
+                @ChangeAmmo.canceled += instance.OnChangeAmmo;
+                @Throw.started += instance.OnThrow;
+                @Throw.performed += instance.OnThrow;
+                @Throw.canceled += instance.OnThrow;
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
             }
         }
     }
@@ -318,5 +405,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnPeek(InputAction.CallbackContext context);
+        void OnChangeAmmo(InputAction.CallbackContext context);
+        void OnThrow(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
     }
 }
