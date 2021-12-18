@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
+    void Start()
+    {
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            gameObject.SetActive(false);
+            GetComponent<AudioSource>().Play();
+            Invoke("Dead", 0.75f);
         }
+    }
+
+    public void Dead()
+    {
+        gameObject.SetActive(false);
     }
 }
