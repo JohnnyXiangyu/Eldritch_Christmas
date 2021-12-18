@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public abstract class Pickup : HoveringTooltip
+public class Pickup : HoveringTooltip
 {
     public string itemName;
     public string itemDescription;
     public Sprite thumbnail;
+
+    [SerializeField] UnityEvent onPickUp;
 
     InputActions input;
 
@@ -18,13 +21,17 @@ public abstract class Pickup : HoveringTooltip
         {
             if (entered && GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().AddItem(this))
             {
+                onPickUp.Invoke();
                 PickedUp();
                 Destroy(gameObject);
             }       
         };
     }
 
-    protected abstract void PickedUp();
+    protected virtual void PickedUp()
+    {
+
+    }
 
     private void OnEnable()
     {

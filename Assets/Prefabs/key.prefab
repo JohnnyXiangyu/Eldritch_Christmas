@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 8058181128071283783}
   - component: {fileID: 8058181128071283782}
   - component: {fileID: 7865363327859331363}
+  - component: {fileID: 898197608119202269}
   m_Layer: 6
   m_Name: key
   m_TagString: Untagged
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8058181128071283803}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e78246cf6dc2b84f97f1592c693313f, type: 3}
   m_Name: 
@@ -319,3 +320,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &898197608119202269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058181128071283803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da699dbb94674b84ab96e3b411ff4d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltip: {fileID: 0}
+  itemName: Key
+  itemDescription: Seems to unlock a door somewhere ...
+  thumbnail: {fileID: 21300000, guid: 2983d7a57cf633c41b3813092a9489e3, type: 3}
+  onPickUp:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7865363327859331363}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
