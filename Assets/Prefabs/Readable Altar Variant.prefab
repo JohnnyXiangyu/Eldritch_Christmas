@@ -23,6 +23,38 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 4772046213632426132, guid: 2cdb9fd3c6555df41aeed592e864a756, type: 2}
+    - target: {fileID: 8563459773870449711, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057766, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5599
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057766, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5599
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057766, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5599
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057766, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057766, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057767, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459774621057767, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8563459774981373656, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
       propertyPath: m_Name
       value: Readable Altar Variant
@@ -122,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 8563459774981373661, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8563459775658243981, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e741dbd752334647b0945b1a8e7a7db, type: 3}
