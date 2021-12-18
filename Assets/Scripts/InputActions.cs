@@ -80,6 +80,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""InventoryMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""89856a5d-801c-48af-b943-5151fe445622"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22536800-8aeb-4979-a79f-3a06a8560513"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -272,6 +292,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Gameplay_ChangeAmmo = m_Gameplay.FindAction("ChangeAmmo", throwIfNotFound: true);
         m_Gameplay_Throw = m_Gameplay.FindAction("Throw", throwIfNotFound: true);
         m_Gameplay_Aim = m_Gameplay.FindAction("Aim", throwIfNotFound: true);
+        m_Gameplay_InventoryMenu = m_Gameplay.FindAction("InventoryMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -337,6 +358,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_ChangeAmmo;
     private readonly InputAction m_Gameplay_Throw;
     private readonly InputAction m_Gameplay_Aim;
+    private readonly InputAction m_Gameplay_InventoryMenu;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -347,6 +369,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @ChangeAmmo => m_Wrapper.m_Gameplay_ChangeAmmo;
         public InputAction @Throw => m_Wrapper.m_Gameplay_Throw;
         public InputAction @Aim => m_Wrapper.m_Gameplay_Aim;
+        public InputAction @InventoryMenu => m_Wrapper.m_Gameplay_InventoryMenu;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -374,6 +397,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAim;
+                @InventoryMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInventoryMenu;
+                @InventoryMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInventoryMenu;
+                @InventoryMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInventoryMenu;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -396,6 +422,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
+                @InventoryMenu.started += instance.OnInventoryMenu;
+                @InventoryMenu.performed += instance.OnInventoryMenu;
+                @InventoryMenu.canceled += instance.OnInventoryMenu;
             }
         }
     }
@@ -408,5 +437,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnChangeAmmo(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnInventoryMenu(InputAction.CallbackContext context);
     }
 }

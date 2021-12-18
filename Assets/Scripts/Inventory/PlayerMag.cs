@@ -19,6 +19,7 @@ public class PlayerMag : MonoBehaviour
 
     // ref
     Camera mainCam;
+    PlayerInventory playerInventory;
 
     // to handle scroll movement
     float ammoSelection = 0;
@@ -40,6 +41,7 @@ public class PlayerMag : MonoBehaviour
         {
             playerController = GetComponent<Player>();
         }
+        playerInventory = GetComponent<PlayerInventory>();
     }
 
     public void AddItem(PickableAmmo newAmmo)
@@ -79,6 +81,7 @@ public class PlayerMag : MonoBehaviour
 
             // update inventory
             magazine[ammoNames[currentAmmo]]--;
+            playerInventory.RemoveOne(ammoNames[currentAmmo]);
         }
     }
 
