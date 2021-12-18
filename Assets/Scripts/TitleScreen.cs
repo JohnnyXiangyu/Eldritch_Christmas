@@ -28,6 +28,8 @@ public class TitleScreen : MonoBehaviour
         background.transform.GetChild(1).GetComponent<Image>().DOFade(1f, 2f);
         background.transform.GetChild(2).GetComponent<Image>().DOFade(1f, 2f);
 
+        background.GetComponent<AudioSource>().Play();
+
         if (Gamepad.current != null || Joystick.current != null)
         {
             GameObject.FindObjectOfType<EventSystem>().SetSelectedGameObject(background.transform.GetChild(1).gameObject);
