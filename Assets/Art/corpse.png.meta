@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: 67dcefa3095c81d4f90d3e5cd4c747d0
+guid: 159bf664fcb1ab543812444a349ae089
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7470636069053334173
-    second: Winged_72x42_0
-  - first:
-      213: -4976674368052954876
-    second: Winged_72x42_1
-  - first:
-      213: 8900190504498818502
-    second: Winged_72x42_2
-  - first:
-      213: -3558442177023296148
-    second: Winged_72x42_3
+      213: 7165940466613131458
+    second: corpse_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -80,7 +71,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,85 +94,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Winged_72x42_0
+      name: corpse_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 46
-        width: 74
-        height: 44
+        x: 8
+        y: 7
+        width: 46
+        height: 35
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36dfad98318f25890800000000000000
-      internalID: -7470636069053334173
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Winged_72x42_1
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 45
-        width: 57
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4097961a70d4feab0800000000000000
-      internalID: -4976674368052954876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Winged_72x42_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1
-        width: 74
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cde4fdcb14d38b70800000000000000
-      internalID: 8900190504498818502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Winged_72x42_3
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 0
-        width: 57
-        height: 44
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6d32c481bfdd9ec0800000000000000
-      internalID: -3558442177023296148
+      spriteID: 2c8921a33e8827360800000000000000
+      internalID: 7165940466613131458
       vertices: []
       indices: 
       edges: []

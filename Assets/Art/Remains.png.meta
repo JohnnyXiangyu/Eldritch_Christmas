@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: cfd7e5f8c6aa5894ea2ec9f743cc0a5d
+guid: d5e21045eeab05a4580e32526ab4bf1c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8881319565840685290
-    second: Guardian_56x56_0
+      213: 5923353653031098853
+    second: Remains_0
   - first:
-      213: -7614358317605069830
-    second: Guardian_56x56_1
+      213: -6084408909474352588
+    second: Remains_1
   - first:
-      213: 7057301273034859283
-    second: Guardian_56x56_2
+      213: 1414859342706345409
+    second: Remains_2
   - first:
-      213: -6558592674000202696
-    second: Guardian_56x56_3
+      213: -8222174583756982345
+    second: Remains_3
   - first:
-      213: 4905687565934513793
-    second: Guardian_56x56_4
+      213: 1708278378676991641
+    second: Remains_4
   - first:
-      213: 8854220131166792430
-    second: Guardian_56x56_5
+      213: 5980160627775487350
+    second: Remains_5
+  - first:
+      213: -2464181830156076480
+    second: Remains_6
+  - first:
+      213: -773824563991174420
+    second: Remains_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Guardian_56x56_0
+      name: Remains_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 144
-        width: 72
-        height: 72
+        y: 46
+        width: 12
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae819a20719c04b70800000000000000
-      internalID: 8881319565840685290
+      spriteID: 5e95eef93caf33250800000000000000
+      internalID: 5923353653031098853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guardian_56x56_1
+      name: Remains_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 144
-        width: 72
-        height: 72
+        x: 14
+        y: 46
+        width: 12
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbdb96e37d545690800000000000000
-      internalID: -7614358317605069830
+      spriteID: 4323f8a5556df8ba0800000000000000
+      internalID: -6084408909474352588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guardian_56x56_2
+      name: Remains_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 72
-        width: 72
-        height: 72
+        x: 21
+        y: 40
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,41 +171,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 313a72cdd1290f160800000000000000
-      internalID: 7057301273034859283
+      spriteID: 1c58721731792a310800000000000000
+      internalID: 1414859342706345409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guardian_56x56_3
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 72
-        width: 72
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8341dbf36b23bf4a0800000000000000
-      internalID: -6558592674000202696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guardian_56x56_4
+      name: Remains_3
       rect:
         serializedVersion: 2
         x: 0
+        y: 40
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b77bed67c7f4ed80800000000000000
+      internalID: -8222174583756982345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remains_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 20
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996b582722605b710800000000000000
+      internalID: 1708278378676991641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remains_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67db55e186ccdf250800000000000000
+      internalID: 5980160627775487350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remains_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a33976ea77dcdd0800000000000000
+      internalID: -2464181830156076480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remains_7
+      rect:
+        serializedVersion: 2
+        x: 11
         y: 0
-        width: 72
-        height: 72
+        width: 21
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,29 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18ec39a89d0841440800000000000000
-      internalID: 4905687565934513793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guardian_56x56_5
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 0
-        width: 72
-        height: 72
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eea2f413c4280ea70800000000000000
-      internalID: 8854220131166792430
+      spriteID: ce2a5d0b8a2d245f0800000000000000
+      internalID: -773824563991174420
       vertices: []
       indices: 
       edges: []
