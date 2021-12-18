@@ -12,10 +12,8 @@ public class PlayerMag : MonoBehaviour
     InputActions input;
 
     // inventory management
-    Dictionary<string, int> magazine = new Dictionary<string, int>();
     Dictionary<string, GameObject> throwablePrefabs = new Dictionary<string, GameObject>();
     List<string> ammoNames = new List<string>();
-    int currentAmmo = 0;
 
     // ref
     Camera mainCam;
@@ -46,14 +44,8 @@ public class PlayerMag : MonoBehaviour
 
     public void AddItem(PickableAmmo newAmmo)
     {
-        if (!magazine.ContainsKey(newAmmo.itemName))
-        {
             ammoNames.Add(newAmmo.itemName);
-            magazine.Add(newAmmo.itemName, 0);
             throwablePrefabs.Add(newAmmo.itemName, newAmmo.throwablePrefab);
-        }
-
-        magazine[newAmmo.itemName]++;
     }
 
     private void ThrowItem(Vector2 target)
@@ -61,8 +53,11 @@ public class PlayerMag : MonoBehaviour
         if (ammoNames.Count == 0 || coolDown > 0)
             return;
 
-        if (magazine.ContainsKey(ammoNames[currentAmmo]) && magazine[ammoNames[currentAmmo]] > 0)
+        if (ammoNames.Count > 0)
         {
+            var newAmmo = ammoNames[0];
+            ammoNames.RemoveAt(0);
+
             // launch
             Vector3 direction = mainCam.ScreenToWorldPoint(target) - transform.position;
             direction.z = 0;
@@ -73,15 +68,14 @@ public class PlayerMag : MonoBehaviour
             if (!playerController.TryThrow(direction))
                 return;
 
-            GameObject projectile = Instantiate(throwablePrefabs[ammoNames[currentAmmo]], transform.position + direction * avoidanceRadius, Quaternion.identity);
+            GameObject projectile = Instantiate(throwablePrefabs[newAmmo], transform.position + direction * avoidanceRadius, Quaternion.identity);
             projectile.GetComponent<LaunchableAmmo>().Launch(direction);
 
             // start timer
             coolDown = throwCoolDown;
 
             // update inventory
-            magazine[ammoNames[currentAmmo]]--;
-            playerInventory.RemoveOne(ammoNames[currentAmmo]);
+            playerInventory.RemoveOne(newAmmo);
         }
     }
 
@@ -89,21 +83,6 @@ public class PlayerMag : MonoBehaviour
     {
         if (ammoNames.Count == 0)
             return;
-
-        if (ammoSelection < 0)
-        {
-            // prev
-            currentAmmo--;
-            if (currentAmmo < 0)
-                currentAmmo = ammoNames.Count - 1;
-        }
-        else if (ammoSelection > 0)
-        {
-            // next
-            currentAmmo++;
-            if (currentAmmo > ammoNames.Count - 1)
-                currentAmmo = 0;
-        }
 
         if (coolDown > 0)
             coolDown -= Time.deltaTime;

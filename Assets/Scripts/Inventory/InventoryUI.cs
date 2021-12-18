@@ -70,6 +70,7 @@ public class InventoryUI : MonoBehaviour
             oldSlot.Unselect();
         }
 
+        newSlot.Select();
         oldSlot = newSlot;
 
         // update info

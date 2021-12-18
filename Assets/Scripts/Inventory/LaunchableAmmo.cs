@@ -5,8 +5,7 @@ using UnityEngine;
 public class LaunchableAmmo : MonoBehaviour
 {
     [SerializeField] float speed = 10.0f;
-    [SerializeField] float maxDistance = 10;
-    [SerializeField] string targetType = "";
+    [SerializeField] float stunDuration = 2;
 
     Vector3 direction = Vector3.zero;
     Vector3 oldLocation = Vector3.zero;
@@ -23,13 +22,23 @@ public class LaunchableAmmo : MonoBehaviour
     {
         if (collision.collider.tag == "Enemy")
         {
-            StunnableEnemy enemy = collision.collider.GetComponent<StunnableEnemy>();
-            if (enemy.GetEnemyType() == targetType)
-            {
-                // TODO: implement whatever boss should do
-            }
+            StartCoroutine(StunRoutine(collision.gameObject.GetComponent<EnemyFOV>()));
         }
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator StunRoutine(EnemyFOV enemy)
+    {
+        enemy.enabled = false;
+
+        float time = 0;
+        while (time < stunDuration)
+        {
+            time += Time.deltaTime;
+            yield return null;  
+        }
+
+        enemy.enabled = true;
     }
 }
