@@ -107,9 +107,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 42
-        width: 72
-        height: 42
+        y: 46
+        width: 74
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,10 +127,10 @@ TextureImporter:
       name: Winged_72x42_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 43
-        width: 55
-        height: 41
+        x: 83
+        y: 45
+        width: 57
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,9 +149,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 72
-        height: 42
+        y: 1
+        width: 74
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,10 +169,10 @@ TextureImporter:
       name: Winged_72x42_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 1
-        width: 55
-        height: 41
+        x: 83
+        y: 0
+        width: 57
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
