@@ -113,11 +113,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 112
-        width: 56
-        height: 56
+        y: 144
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,12 +133,12 @@ TextureImporter:
       name: Guardian_56x56_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 112
-        width: 56
-        height: 56
+        x: 72
+        y: 144
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: Guardian_56x56_2
       rect:
         serializedVersion: 2
-        x: 56
-        y: 56
-        width: 56
-        height: 56
+        x: 0
+        y: 72
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: Guardian_56x56_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 56
-        width: 56
-        height: 56
+        x: 72
+        y: 72
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,10 +198,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 56
-        height: 56
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,12 +217,12 @@ TextureImporter:
       name: Guardian_56x56_5
       rect:
         serializedVersion: 2
-        x: 56
+        x: 72
         y: 0
-        width: 56
-        height: 56
+        width: 72
+        height: 72
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
