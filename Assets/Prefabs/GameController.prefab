@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4851935695226986599}
   - component: {fileID: 5972383087385324624}
   - component: {fileID: 7313381356922152228}
+  - component: {fileID: 81271841438121491}
+  - component: {fileID: 2101054939722528554}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -277,6 +279,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &81271841438121491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112543865183934303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2b11ff01bbbf34a8be85daa80ff0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2101054939722528554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112543865183934303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42eb23c3f648ad941a9a3e6fe78df1fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwCoolDown: 0.5
+  avoidanceRadius: 0.5
+  playerController: {fileID: 2817459462925715482}
 --- !u!1 &1932930926175450569
 GameObject:
   m_ObjectHideFlags: 0
