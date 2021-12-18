@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Pickup : HoveringTooltip
 {
     public string itemName;
+    public string itemDescription;
     public Sprite thumbnail;
 
     InputActions input;
@@ -15,9 +16,11 @@ public abstract class Pickup : HoveringTooltip
 
         input.Gameplay.Interact.performed += context =>
         {
-            GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().AddItem(this);
-            PickedUp();
-            Destroy(gameObject);
+            if (entered && GameObject.FindWithTag("Player").GetComponent<PlayerInventory>().AddItem(this))
+            {
+                PickedUp();
+                Destroy(gameObject);
+            }       
         };
     }
 
