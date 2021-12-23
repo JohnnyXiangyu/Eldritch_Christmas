@@ -23,7 +23,11 @@ public class Pickup : HoveringTooltip
             {
                 onPickUp.Invoke();
                 PickedUp();
-                Destroy(gameObject);
+                GetComponent<SpriteRenderer>().enabled = false;
+                this.enabled = false;
+
+                for (int i = 0; i < transform.childCount; i++)
+                    Destroy(transform.GetChild(i).gameObject);
             }       
         };
     }

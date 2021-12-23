@@ -9065,7 +9065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551976344780249682, guid: 86cd60dbc0c25ce429a032f8573b256d, type: 3}
       propertyPath: textToShow
-      value: LSHIFT or (X) to peek around corners
+      value: LSHIFT to peek around corners
       objectReference: {fileID: 0}
     - target: {fileID: 1551976344780249683, guid: 86cd60dbc0c25ce429a032f8573b256d, type: 3}
       propertyPath: m_RootOrder
